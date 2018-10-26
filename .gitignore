@@ -1,0 +1,6 @@
+/var/cache/*
+/var/log/*
+
+/vendor/
+/src/inc
+/.idea

@@ -1,0 +1,21 @@
+{% set current_path = app.request.get('_route') %}
+{% set arrRoutes =
+    {
+        'menu.title.playlist'       :  {'rte':'rte_homepage',       'icon': 'fa fa-archive'},
+        'menu.title.browse_songs'   :  {'rte':'rte_songs_list',     'icon': 'fa fa-music'},
+        'menu.title.new_song'       :  {'rte':'rte_add_song',       'icon': 'fa fa-plus-square'},
+        'menu.title.new_playlist'   :  {'rte':'rte_new_playlist',   'icon': 'fa fa-file'},
+        'menu.title.new_artist'     :  {'rte':'rte_new_artist',     'icon': 'fa fa-user-plus'},
+        'menu.title.artists'        :  {'rte':'rte_artist_list',    'icon': 'fa fa-users'},
+    }
+%}
+<div class="col-md-12 pz-head">
+    <div class="pz-menu">
+        {% for menuTitleTransKey, menuRouteName in arrRoutes %}
+            <a  class='btn btn-primary pz-btn-main {% if current_path == menuRouteName.rte %}pz-active{% endif %}' href='{{ path(menuRouteName.rte) }}'>
+                {{ menuTitleTransKey | trans }} <span class="{{ menuRouteName.icon }}"></span>
+            </a>
+        {% endfor%}
+    </div>
+</div>
+<div class="wrap clear-float"></div>

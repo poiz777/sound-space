@@ -1,0 +1,126 @@
+{% extends 'master.html.twig' %}
+{% block title %}Songs Tracker{% endblock %}
+
+{% block top_css_block %}
+{% endblock %}
+
+{% block top_row %}
+    <div class="pz-spacer col-md-12"></div>
+{% endblock %}
+
+{% block menu_left %}
+    {% include 'partials/fe-songs-menu.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <section id="pz-main-wrapper" class="pz-main-wrapper no-lr-pad containR">
+        <span class="scroll-to-top" id="scroll-to-top">
+            <span class="fa fa-chevron-up scroll-to-top-icon" id="scroll-to-top-icon"></span>
+        </span>
+        <section>
+            {% include'partials/flash-message.render.html.twig' %}
+            <section >
+                <div class="pz-time-tracker-wrapper col-md-12 no-lr-pad">
+                    <div class="col-md-12 no-lr-pad pz-form-wrapper" id="pz-form-wrapper">
+
+                        <div class="col-md-12 no-lr-pad">
+                            <div class="well">
+                                <blockquote>
+                                    <span class="fa fa-warning fa-2x"></span> {{ 'playlist_creation_tips' | trans }}
+                                    <br />
+                                    <small>{{ 'playlist_creation_tips_supplemental_1' | trans }} <span class="fa fa-save fa-2x"></span> {{ 'playlist_creation_tips_supplemental_2' | trans }} </small>
+                                </blockquote>
+                                <p>
+                                </p>
+                            </div>
+                        </div>
+
+                        {% set cue              = 0 %}
+                        {% set showGlobalToggle = true  %}
+                        {% set oddEven          = ' pz-odd' %}
+                        {% set allSongs         = songs  %}
+                        <form method="post" enctype="multipart/form-data" id="pz-playlist-form" class="pz-playlist-form">
+                            {% for song in songs %}
+                                {% if cue % 2 == 0 %}
+                                    {% set oddEven = ' pz-even' %}
+                                {% else %}
+                                    {% set oddEven = ' pz-odd' %}
+                                {% endif %}
+                                {% if showGlobalToggle == true %}
+                                    <div class="col-md-12 no-lr-pad pz-row-wrap pz-odd pz-heading">
+                                        <div class="pz-strip row">
+                                            <div class="col-md-3">
+                                                <h5>{{ 'Song' | trans | raw }}</h5>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h5>{{ 'Artist' | trans | raw }}</h5>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h5>{{ 'Audio Player' | trans | raw }}</h5>
+                                            </div>
+                                            <div class="col-md-2 pz-player-checkbox">
+                                                <aside class="pz-checkbox-block pz-combo-cb">
+                                                    <label>
+                                                        <input type="checkbox" class="" name="song_id_null" value="0"/>
+                                                        <span class="pz-input-side-label">{{  'toggle' | trans }}</span>
+                                                        <br /><button class="fa fa-save"></button>
+                                                    </label>
+                                                </aside>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% set showGlobalToggle   = false  %}
+                                {% endif %}
+
+                                <div class="col-md-12 no-lr-pad pz-row-wrap {{ oddEven }}">
+                                    <div class="pz-strip row">
+                                        <div class="col-md-3">
+                                            <img src="{{ song.coverArt.image }}" class="img-thumbnail pz-cover-art-thumb">
+                                            {{ song.name }}
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <a class="" style="display:block;padding-top:17px;" href="{{ path('rte_artist_songs', {'id':song.artist.id}) }}">
+                                                {% if isArtistSongs is defined and isArtistSongs %}
+                                                {% else %}
+                                                    <span class="pz-badge-wrap">
+                                                        <span class="badge">{{ song.artist.songs | sequence_length }}</span>
+                                                    </span>
+                                                {% endif %}
+
+                                                {{ song.artist.name}}
+                                            </a>
+                                        </div>
+
+                                        <div class="col-md-4 pz-player-pod">
+                                            <audio class="pz-audio-player" src="{{ song.file }}" aria-controls="" controls></audio>
+                                        </div>
+
+                                        <div class="col-md-2 pz-player-checkbox">
+                                            <aside class="pz-checkbox-block pz-single-cb">
+                                                <label>
+                                                    <input type="checkbox" class="" name="song_id_{{ song.id }}" value="{{ song.id }}"/>
+                                                    <span class="pz-input-side-label">{{  'add' | trans }}</span>
+                                                </label>
+                                            </aside>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% set cue = cue + 1 %}
+                            {% endfor %}
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+{% endblock %}
+
+{% block footer_scripts %}
+    <script type="text/javascript" src="{{ asset('js/jquery-3.1.0.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/pz-toggle-worker.js') }}"></script>
+{% endblock %}
+
+
+

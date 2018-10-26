@@ -1,0 +1,61 @@
+{% extends 'master.html.twig' %}
+{% block title %}Songs Tracker{% endblock %}
+
+{% block top_css_block %}
+{% endblock %}
+
+{% block top_row %}
+    <div class="pz-spacer col-md-12"></div>
+{% endblock %}
+
+{% block menu_left %}
+    {% include 'partials/fe-songs-menu.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <section id="pz-main-wrapper" class="pz-main-wrapper no-lr-pad containR">
+        <span class="scroll-to-top" id="scroll-to-top">
+            <span class="fa fa-chevron-up scroll-to-top-icon" id="scroll-to-top-icon"></span>
+        </span>
+        <section>
+            {% include'partials/flash-message.render.html.twig' %}
+            <section >
+                <div class="pz-time-tracker-wrapper col-md-12 no-lr-pad">
+                    <div class="col-md-12 no-lr-pad pz-form-wrapper" id="pz-form-wrapper">
+                        {%
+                            set artistData = {
+                            'song_artist'   : {'field': 'artist',       'label': 'Artist'},
+                            'song_genre'    : {'field': 'genre',        'label': 'Genre'},
+                            'song_name'     : {'field': 'name',         'label': 'Song Title'},
+                            'cover_pix'     : {'field': 'cover_pix',    'label': 'Cover Art'},
+                            'song_file'     : {'field': 'file',         'label': 'Song File'},
+                        }
+                        %}
+                        <div class="col-md-12 pz-form-wrap">
+                            {{ form_start(form) }}
+                            {% for songInputID, songData in artistData %}
+                                {{ form_label(form[songData.field], songData.label | trans ) }}
+                                {{ form_errors(form[songData.field]) }}
+                                {{ form_widget(form[songData.field], {'id': songInputID}) }}
+                            {% endfor %}
+                            <button type="submit" class="btn btn-primary" formnovalidate >Save</button>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+{% endblock %}
+
+{% block footer_scripts %}
+    <script type="text/javascript" src="{{ asset('js/jquery-3.1.0.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+    <!--
+    <script type="text/javascript" src="{{ asset('js/highcharts.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.poiz_tooltip.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/pz_track.js') }}"></script>
+    -->
+{% endblock %}
+
+

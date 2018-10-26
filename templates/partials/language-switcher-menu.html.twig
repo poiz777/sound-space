@@ -1,0 +1,40 @@
+{% set currentLang  = app.request.get('_locale') %}
+{% set routeParams  = app.request.get('_route_params') %}
+{% set curRouteName = app.request.get('_route') %}
+{% set arrLangData  =
+        {
+            'en'    :  {'icon': 'images/icons/flags/US.png'},
+            'de'    :  {'icon': 'images/icons/flags/DE.png'},
+            'fr'    :  {'icon': 'images/icons/flags/FR.png'},
+        }
+%}
+
+<div class="pz-language-box">
+    <div class="pz-flag-box">
+        {% for langLocale, iconObj in arrLangData %}
+            {% set routeParams = overRideArrayVal(routeParams, {'_locale':langLocale}) %}
+            <a  class='btn btn-primary pz-btn-main {% if currentLang == langLocale %}pz-active{% endif %}' href='{{ buildRoute(curRouteName, routeParams) }}' title="{{ exec('strtoupper', langLocale) }}">
+                <img src="{{ asset(iconObj.icon) }}" alt="Lang Icon" class="pz-lang-icon" id="pz-lang-icon-{{ langLocale }}" />
+            </a>
+        {% endfor%}
+        &nbsp;&nbsp;&nbsp;
+        {% if is_granted("ROLE_ADMIN") %}
+            {{ 'Hi' | trans }} {{ app.user.username | stripATSymbol}} &nbsp;|&nbsp;
+            <a class="pz-log-btn" href="{{ path('security_register') }}">{{ 'Register User' | trans}} <span class="fa fa-user"></span> </a> &nbsp;|&nbsp;
+            <a class="pz-log-btn" href="{{ path('security_logout') }}">Logout <span class="fa fa-lock-o"></span> </a>
+        {% elseif is_granted("ROLE_USER") %}
+	        {{ 'Hi' | trans }} {{ app.user.username | stripATSymbol }} &nbsp;|&nbsp;
+            <a class="pz-log-btn" href="{{ path('security_logout') }}">Logout <span class="fa fa-lock-o"></span> </a>
+        {% else %}
+            <a class="pz-log-btn" href="{{ path('security_register') }}">{{ 'Register' | trans}} <span class="fa fa-user"></span> </a> &nbsp;|&nbsp;
+            <a class="pz-log-btn" href="{{ path('security_login') }}">{{ 'Login' | trans}} <span class="fa fa-lock"></span> </a>
+        {% endif %}
+    </div>
+</div>
+<div class="wrap clear-float"></div>
+
+
+
+
+
+

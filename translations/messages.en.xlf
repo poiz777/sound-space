@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="menu.title.playlist">
+                <source>menu.title.playlist</source>
+                <target>My Playlists</target>
+            </trans-unit>
+
+            <trans-unit id="menu.title.browse_songs">
+                <source>menu.title.browse_songs</source>
+                <target>Browse Songs</target>
+            </trans-unit>
+
+            <trans-unit id="menu.title.new_song">
+                <source>menu.title.new_song</source>
+                <target>New Song</target>
+            </trans-unit>
+
+            <trans-unit id="Songs">
+                <source>Songs</source>
+                <target>Songs</target>
+            </trans-unit>
+
+            <trans-unit id="menu.title.new_playlist">
+                <source>menu.title.new_playlist</source>
+                <target>New Playlist</target>
+            </trans-unit>
+
+            <trans-unit id="menu.title.artists">
+                <source>menu.title.artists</source>
+                <target>Artists</target>
+            </trans-unit>
+
+            <trans-unit id="menu.title.new_artist">
+                <source>menu.title.new_artist</source>
+                <target>New Artist</target>
+            </trans-unit>
+
+            <trans-unit id="toggleSelection">
+                <source>toggleSelection</source>
+                <target>Toggle Selection</target>
+            </trans-unit>
+
+            <trans-unit id="toggle">
+                <source>toggle</source>
+                <target>Toggle</target>
+            </trans-unit>
+
+            <trans-unit id="add2Playlist">
+                <source>add2Playlist</source>
+                <target>Add to Playlist</target>
+            </trans-unit>
+
+            <trans-unit id="add">
+                <source>add</source>
+                <target>Add</target>
+            </trans-unit>
+
+            <trans-unit id="Song">
+                <source>Song</source>
+                <target>Song</target>
+            </trans-unit>
+
+            <trans-unit id="Artist">
+                <source>Artist</source>
+                <target>Artist</target>
+            </trans-unit>
+
+            <trans-unit id="Audio Player">
+                <source>Audio Player</source>
+                <target>Audio Player</target>
+            </trans-unit>
+
+            <trans-unit id="playlist_creation_tips">
+                <source>playlist_creation_tips</source>
+                <target>To create a Playlist, simply use the checkbox below to check-in the selected songs to your Playlist.</target>
+            </trans-unit>
+
+            <trans-unit id="playlist_creation_tips_supplemental_1">
+                <source>playlist_creation_tips_supplemental_1</source>
+                <target>Once you are done, click the Create My Playlist Icon </target>
+            </trans-unit>
+
+            <trans-unit id="playlist_creation_tips_supplemental_2">
+                <source>playlist_creation_tips_supplemental_2</source>
+                <target>below.</target>
+            </trans-unit>
+
+            <trans-unit id="Register">
+                <source>Register</source>
+                <target>Register</target>
+            </trans-unit>
+
+            <trans-unit id="Login">
+                <source>Login</source>
+                <target>Login</target>
+            </trans-unit>
+
+            <trans-unit id="Username">
+                <source>Username</source>
+                <target>Username</target>
+            </trans-unit>
+
+            <trans-unit id="Password">
+                <source>Password</source>
+                <target>Password</target>
+            </trans-unit>
+
+            <trans-unit id="has_no_published_songs">
+                <source>has_no_published_songs</source>
+                <target>has no published songs yet</target>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

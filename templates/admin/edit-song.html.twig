@@ -1,0 +1,89 @@
+{% extends 'master.html.twig' %}
+{% block title %}Songs Tracker{% endblock %}
+
+{% block top_css_block %}
+{% endblock %}
+
+{% block top_row %}
+    <div class="pz-spacer col-md-12"></div>
+{% endblock %}
+
+{% block menu_left %}
+    {% include 'partials/fe-songs-menu.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <section id="pz-main-wrapper" class="pz-main-wrapper no-lr-pad containR">
+        <span class="scroll-to-top" id="scroll-to-top">
+            <span class="fa fa-chevron-up scroll-to-top-icon" id="scroll-to-top-icon"></span>
+        </span>
+        <section>
+            {% include'partials/flash-message.render.html.twig' %}
+            <section >
+                <div class="pz-time-tracker-wrapper col-md-12 no-lr-pad">
+                    <div class="col-md-12 no-lr-pad pz-form-wrapper" id="pz-form-wrapper">
+
+                        {% set btnLabel = 'Save' | trans %}
+                        {% if app.request.get('_route') == "rte_song_edit" %}
+                            {% set btnLabel = 'Update' | trans %}
+                        {% endif %}
+
+                        {{ form_start(form) }}
+                        {{ form_label(form.artist, 'Artist') }}
+                        {{ form_errors(form.artist) }}
+                        {{ form_widget(form.artist, {'id': 'song_artist'}) }}
+
+                        {{ form_label(form.genre, 'Genre') }}
+                        {{ form_errors(form.genre) }}
+                        {{ form_widget(form.genre, {'id': 'song_genre'}) }}
+
+                        {{ form_label(form.name, 'Song Title') }}
+                        {{ form_errors(form.name) }}
+                        {{ form_widget(form.name, {'id': 'song_name'}) }}
+
+
+                        <div class="col-md-12 no-lr-pad">
+                            <div class="col-md-12 pz-spacer"></div>
+                            <div class="col-md-2 no-lr-pad">
+                                <img style="width:100%;" src="{{ song.coverArt | remove_path_prefix }}" class="thumbnail">
+                            </div>
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-6">
+                                {{ form_label(form.cover_pix, 'Cover Art') }}
+                                {{ form_errors(form.cover_pix) }}
+                                {{ form_widget(form.cover_pix, {'id': 'cover_art'}) }}
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 no-lr-pad">
+                            <div class="col-md-6 no-lr-pad">
+                                <audio style="width:100%;" src="{{ song.file | remove_path_prefix }}" aria-controls="" controls></audio>
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_label(form.file, 'Song File') }}
+                                {{ form_errors(form.file) }}
+                                {{ form_widget(form.file, {'id': 'song_file'}) }}
+                            </div>
+                        </div>
+                        <div class="col-md-12 pz-spacer"></div>
+                        <button type="submit" class="btn btn-primary" formnovalidate >{{ btnLabel }}</button>
+                        {{ form_end(form, {'render_rest':true}) }}
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+{% endblock %}
+
+{% block footer_scripts %}
+    <script type="text/javascript" src="{{ asset('js/jquery-3.1.0.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+    <!--
+    <script type="text/javascript" src="{{ asset('js/highcharts.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.poiz_tooltip.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/pz_track.js') }}"></script>
+    -->
+{% endblock %}
+
+
+

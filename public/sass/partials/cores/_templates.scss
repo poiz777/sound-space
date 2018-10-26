@@ -1,0 +1,51 @@
+@import "settings";
+
+%half-size-inline {
+	display: inline-block;
+	width: 50%;
+	&:first-child {
+		padding-right: 20px;
+	}
+	@include respond-to(medium-screens) {
+		width: 100%;
+		&:first-child {
+			padding-right: 0;
+		}
+	}
+	font-size: $font-size-default;
+	line-height: 1.2em;
+	vertical-align: top;
+}
+
+
+%wrap {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+%fix_float{
+  zoom:1;
+  &:before, &:after{
+    content:"";
+    display:table;
+  }
+  &:after{
+    clear:both;
+  }
+}
+
+%response_tmpl_box{
+  width:100%;
+  float:none;
+  margin:0;
+}
+
+%response_tmpl_img{
+  width:100%;
+  float:none;
+  margin:0;
+  img, .full_pane_pix{
+	width:100%;
+  }
+}

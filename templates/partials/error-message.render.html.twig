@@ -1,0 +1,16 @@
+<section class="pz-message-block">
+    {% if errors is defined %}
+        <!-- ERROR BLOCK -->
+        <div class="alert alert-danger" >
+            <h3>Check the following errors</h3>
+            <ul>
+                {% for error in errors %}
+                    <li>
+                        {{ error.messageKey|trans(error.messageData, 'security') }}
+                        <!-- {{ error.message }} -->
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+</section>

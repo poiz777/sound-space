@@ -1,0 +1,63 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+
+    encoders:
+        App\Entity\User: bcrypt
+
+    providers:
+        our_users:
+            entity: {class: App\Entity\User, property: _username}
+
+        your_db_provider:
+            entity:
+                class: App\Entity\Users
+                property: apiKey
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            provider: our_users
+            security: true
+            guard:
+                authenticators:
+                    - app.security.login_form_authenticator
+
+            #guard:
+                ##authenticators:
+                    #- App\Security\TokenAuthenticator
+
+            # this firewall applies to all URLs
+            pattern: ^/
+
+            # but the firewall does not require login on every page
+            # denying access is done in access_control or in your controllers
+            anonymous: true
+
+            # This allows the user to login by submitting a username and password
+            # Reference: http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+            form_login:
+                # The route name that the login form submits to
+                check_path: security_login_check
+                # The name of the route where the login form lives
+                # When the user tries to access a protected page, they are redirected here
+                login_path: security_login
+
+            logout:
+                path: /logout
+
+            # activate different ways to authenticate
+
+            # http_basic: true
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+
+            # form_login: true
+            # https://symfony.com/doc/current/security/form_login_setup.html
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+
+    #access_control:
+         #- { path: ^/admin, roles: ROLE_ADMIN }
+         #- { path: ^/profile, roles: ROLE_USER }

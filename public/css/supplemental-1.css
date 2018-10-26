@@ -1,0 +1,580 @@
+body{
+    background: rgb(255, 255, 255);
+}
+
+#static_bar_top{
+    background: rgb(244, 232, 219);
+    border: solid rgba(210, 161, 111, 0.1) 2px;
+    background: url(./../images/png/header-bg.png) 50% 50% repeat;
+}
+
+#main_display{
+    padding-left:0;
+}
+
+.navbar-brand{
+    min-height: 90px;
+}
+.highlight,
+.search_high_light{
+    background: rgba(255, 255, 255, 0.85);
+    padding:2px 10px;
+    display:inline-block;
+    color: rgb(135, 0, 24);
+    font-weight: 600;
+    border-radius: 10px 0 10px 0;
+}
+
+
+.search_solo{
+    padding:20px;
+    margin-bottom: 15px;
+}
+
+.search_solo_box_1{
+    background: rgba(133, 184, 163, 0.69);
+    border-radius: 0 10px 0 10px;
+}
+
+.search_solo_box_2{
+    background: rgba(133, 184, 163, 0.39);
+    border-radius: 10px 0 10px 0;
+}
+
+.search_mod_div{
+    clear: both;
+    padding:10px;
+}
+
+.search_icon_advanced,
+.search_icon{
+    display: inline-block;
+    position: absolute;
+    top:0;
+    right: 0;
+    font-size: 1.5em;
+    padding:5px;
+    cursor: pointer;
+    color:  rgba(221, 196, 170, 0.97);
+}
+
+.search_icon_advanced{
+    padding:5px 20px 5px 0;
+}
+#search-searchword,
+#mod-search-searchword{
+    color:  rgba(221, 196, 170, 0.97);
+    border: 1px solid rgba(221, 196, 170, 0.97);
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.bannergroup_fink{
+    margin: 20px 0;
+}
+
+.banneritem{
+    margin: 10px 0;
+}
+
+.leader_board{
+    margin: 0 auto;
+    text-align: center;
+    margin-top: -15px;
+}
+
+.leader_board .bannergroup .banneritem a img{
+    max-width: 100%;
+}
+
+.bannergroup_fink .banneritem a img{
+    max-width: 100%;
+}
+
+img.crown{
+    margin-top: 12px;
+}
+
+
+.pagination_box{
+    font-weight: 200;
+    letter-spacing: 2px;
+    margin-top:20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 10px 0 10px 0;
+    color: rgba(0, 0, 0, 0.6);
+    background: url(./../images/png/pagination_box_bg.png) 50% 50% repeat;
+}
+
+.pagination_box form{
+    padding-bottom: 20px;
+}
+
+.pagination_box .pagination{
+    margin:0;
+    padding: 0;
+    display: inline-block;
+}
+
+.pagination_box ul{
+    list-style: none !important;
+    padding: 0;
+    margin: 0
+}
+.pagination_box li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 20px;
+    padding: 0;
+}
+
+.disabled .glyphicon{
+    color: #333333;
+    opacity: 0.4;
+}
+
+select#limit{
+    display: inline-block;
+    float: right;
+}
+
+.pagination li.active a{
+    color: rgba(115, 15, 10, 1);
+}
+
+#limit{
+    display: inline-block;
+}
+
+.pagination li a{
+    font-weight:800;
+}
+
+
+.item-page>.page-header{
+    margin:0;
+    padding:0;
+    border-bottom:none;
+}
+
+.item-page>.page-header>h1,
+.item-page>.page-header>h2,
+.item-page>.page-header>h3{
+    font-weight: 200;
+    letter-spacing: 1px;
+    margin: 0;
+    padding:0;
+    padding-left: 15px;
+}
+.leading-0 h1,
+.leading-0 h2,
+.item-page h1,
+.item-page h2,
+.item-page h3,
+.item-page>.page-header>h1,
+.item-page>.page-header>h2,
+.item-title,
+.item-page>.page-header>h3 {
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 12px 0 12px 15px !important;
+    margin-bottom: 25px;
+    margin-top: 0;
+    border-radius: 10px 0 10px 0;
+    color: rgba(63, 63, 63, 0.98);
+    color: rgba(95, 77, 0, 0.98);
+    background: url(./../images/png/operations_bg_3.png) 50% 50% repeat;
+}
+
+#main_display h1,
+#main_display h2,
+#main_display h3,
+#main_display h4{
+}
+.most_beautiful_pix{
+    max-width:100%;
+}
+
+
+.ads_nav_wrapper{
+    text-align: center;
+}
+.cs_carousel{
+    margin:0;
+    padding:0;
+    margin-top:60px;
+}
+.cs_carousel+.navbar{
+    min-height: 100px;
+    margin-bottom: 20px;
+}
+
+.nivo-controlNav{
+    display: none;
+}
+.header_padder{
+    min-height: 50px;
+}
+
+.navbar-inverse {
+    border-color: rgba(221, 196, 170, 0.97);
+}
+.navbar-form{
+    margin-top: 33px;
+}
+
+.jumbotron {
+    padding: 30px 15px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    color: rgba(255,255, 255, 1);
+    color: rgba(96, 0, 188, 1);
+    background: rgba(169, 196, 56, 0.3);
+    background: rgba(248, 123, 248, 0.60);
+    background: rgba(96, 0, 188, 1.0);
+    background: url('./../images/png/header-bg.png') 50% 50% repeat;
+}
+
+
+.jumbotron h1,
+.jumbotron .h1 {
+    color: rgb(169, 196, 56);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.extra_data_bar{
+    padding:50px 0;
+    margin-left:0;
+    margin-right:0;
+    border-color: rgba(221, 196, 170, 0.97);
+    margin-top: 20px;
+
+    background: rgb(244, 232, 219);
+    border-top: solid rgba(210, 161, 111, 0.1) 2px;
+}
+
+.bottom_nav_link{
+    color: rgba(152, 76, 12, 0.96);
+}
+
+.extra_box_1,
+.extra_box_2,
+.extra_box_3,
+.extra_box_4{
+    margin-bottom: 10px;
+}
+
+
+.extra_box_1{
+    padding-left: 0;
+    margin-left: 0;
+}
+
+
+p.article_paragraph,
+p.drop_cap,
+p.drop_caps{
+    margin-bottom:10px;
+}
+
+p.drop_caps:first-letter,
+p.drop_cap:first-letter{
+    color: rgba(67, 128, 104, 1);
+    font: bold 40px/30px  Helvetica, Verdana, sans-serif;
+    padding-right: 5px;
+    float: left;
+    font-style: italic;
+    font-weight:bold;
+}
+
+span.about_apostle_charles{
+    border-left:solid rgba(67, 128, 104, 1) 20px;
+    border-right:solid rgba(67, 128, 104, 1) 20px;
+    padding:0 15px;
+
+}
+
+span.bible_quote{
+    font-style: italic;
+    font-weight:bold;
+    font-size:12px;
+    color: rgba(67, 128, 104, 1) ;
+    letter-spacing: 1px;
+}
+
+span.bible_verse{
+    font-style: italic;
+    font-weight:bold;
+    font-size:10px;
+    color: rgba(240, 119, 85, 1);
+    margin-bottom:10px;
+    letter-spacing: 1px;
+}
+
+span.target_name{
+    color: rgba(0, 131, 145, 1);
+    font-weight: bolder;
+}
+
+em.relative_emphasis{
+    color: rgba(0, 131, 145, 1);
+}
+
+
+img.charles_pix{
+    margin-right: 10px;
+    float:left;
+    border:dotted rgba(67, 128, 104, 0.9) 2px;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+}
+
+img.charles_pix p{
+    float: right;
+}
+
+
+@media screen and (max-width: 1199px) {
+    body{
+        padding-top:75px;
+    }
+    .header_banner {
+        display:block;
+        margin-top: 40px;
+        float:left;
+        margin-bottom:10px;
+    }
+    .free_inserate_logo {
+        display:block;
+        text-align: center;
+        max-width: 75%;
+    }
+
+    #header_banner .custom .crown{
+        float: none !important;
+    }
+
+    #header_banner .custom{
+        display: block;
+        position: relative;
+        width:100%;
+    }
+    #header_banner .custom,
+    #header_banner{
+        width: 100%;
+    }
+
+    .navbar-brand,
+    .navbar-header{
+        width: 100%;
+        padding:0 ;
+        text-align: center;
+        margin:0 auto;
+    }
+    .ccm_logo,
+    #static_bar_top div,
+    #header_banner,
+    .navbar-brand,
+    #header_banner .custom,
+    #header_banner .custom .crown{
+        text-align: center;
+        margin:0 auto;
+        min-height: 10px;
+        max-width:90%;
+
+    }
+    .extra_data_bar{
+        margin-right:15px;
+        margin-left:15px;
+    }
+
+    #header_banner .custom .crown{
+    }
+
+}
+
+@media screen and (max-width: 991px) {
+    body{
+        padding-top:90px;
+    }
+    .free_inserate_logo {
+        display:block;
+        max-width: 75% ;
+    }
+
+    #free_ads_nav{
+        margin-top: 65px;
+    }
+    #free_ads_nav ul.nav{
+        margin-right:-15px;
+        margin-left:-15px;
+    }
+
+    #main_display{
+        padding-left: 15px;
+    }
+
+    #free_ads_nav,
+    .ads_nav_wrapper{
+        padding:0;
+        margin:0;
+
+    }
+    #free_ads_nav ul.nav>li{
+        list-style: none;
+        display: inline-block;
+        min-width:100%;
+        height:40px;
+        padding: 0;
+        margin:0;
+        float: left;
+        border:none;
+        background-repeat: repeat-x;
+    }
+    .extra_box_1,
+    .extra_box_2,
+    .extra_box_3,
+    .extra_box_4{;
+        margin: 0 auto;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+        border-bottom: 1px solid rgba(221, 196, 170, 0.99);
+    }
+    .extra_box_1{
+        border-top: 1px solid rgba(138, 112, 1, 0.99);
+        border-top: 1px solid rgba(221, 196, 170, 0.99);
+        padding-top: 20px;
+
+
+    }
+
+    .navbar-toggle{
+        display: none;
+    }
+
+    #static_bar_top{
+        min-height: 10px;
+    }
+    .extra_data_bar>.container>.col-md-12>.col-md-3:first-child{
+        border-top:none;
+    }
+    .extra_data_bar>.container>.col-md-12>.col-md-3:last-child{
+        border-bottom: none;
+    }
+    .banner_rgt{
+        display: none;
+    }
+
+
+    .ccm_logo{
+        max-height:70% !important;
+    }
+    .crown{
+        max-height:70% !important;
+        max-width:70% !important;
+        margin-top: -30px !important;
+    }
+    .navbar-brand {
+    }
+    #static_bar_top .container{
+        max-height: 70px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    body{
+        padding-top:90px;
+    }
+
+    #main_display{
+        padding-left: 15px;
+    }
+    .jumbotron {
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+    .banner_rgt{
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    body{
+        padding-top:90px;
+    }
+    .free_inserate_logo {
+        display:block;
+        max-width: 75%;
+    }
+    .banner_rgt{
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    body{
+        padding-top:90px;
+    }
+    .free_inserate_logo {
+        display:block;
+        max-width: 75%;
+    }
+
+    #main_display{
+        padding-left: 15px;
+    }
+    .banner_rgt{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body{
+        padding-top:90px;
+    }
+    .free_inserate_logo {
+        display:block;
+        max-width: 75%;
+    }
+
+    #main_display{
+        padding-left: 15px;
+    }
+    .banner_rgt{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    body{
+        padding-top:90px;
+    }
+
+    #main_display{
+        padding-left: 15px;
+    }
+    .banner_rgt{
+        display: none;
+    }
+
+}
+
+
+#system-message.alert.alert-error,
+#system-message-container #system-message .alert{
+    background: rgba(169, 196, 56, 0.6);
+    margin-left:15px;
+    margin-right:15px;
+}
+
+#system-message.alert.alert-error{
+
+}

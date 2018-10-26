@@ -1,0 +1,125 @@
+{% extends 'master.html.twig' %}
+{% block title %}Songs Tracker{% endblock %}
+
+{% block top_css_block %}
+{% endblock %}
+
+{% block top_row %}
+    <div class="pz-spacer col-md-12"></div>
+{% endblock %}
+
+{% block menu_left %}
+    {% include 'partials/fe-songs-menu.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <section id="pz-main-wrapper" class="pz-main-wrapper no-lr-pad containR">
+        <span class="scroll-to-top" id="scroll-to-top">
+            <span class="fa fa-chevron-up scroll-to-top-icon" id="scroll-to-top-icon"></span>
+        </span>
+        <section>
+            {% include'partials/flash-message.render.html.twig' %}
+            <section >
+                <div class="pz-time-tracker-wrapper col-md-12 no-lr-pad">
+                    <div class="col-md-12 no-lr-pad pz-form-wrapper" id="pz-form-wrapper">
+
+                        <div class="col-md-12 no-lr-pad pz-head">
+                            {{ form_start(form) }}
+                            <div class="col-md-4">
+                                {{ form_row(form.order_by) }}
+                            </div>
+                            <div class="col-md-4">
+                                {{ form_row(form.order_direction) }}
+                            </div>
+                            <div class="col-md-4">
+                                <label>&nbsp;</label>
+                                <button class="btn btn-success form-control" style="display: inline-block;width:auto;margin-top:25px;" value="submit" type="submit">Sort</button>
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
+
+                        <div class="spacer col-md-12"></div>
+
+                        <div class="col-md-12 no-lr-pad pz-head">
+                            {{ form_start(searchForm) }}
+                            <div class="col-md-4">
+                                {{ form_row(searchForm.search_table) }}
+                            </div>
+                            <div class="col-md-4">
+                                {{ form_row(searchForm.search_term) }}
+                            </div>
+                            <div class="col-md-4">
+                                <label>&nbsp;</label>
+                                <button class="btn btn-success form-control" style="display: inline-block;width:auto;margin-top:25px;" value="submit" type="submit">Sort</button>
+                            </div>
+                            {{ form_end(searchForm) }}
+                        </div>
+
+                        <div class="spacer col-md-12"></div>
+
+                        {% if songs | sequence_length == 0 %}
+                            <div class="col-md-12 no-lr-pad pz-row-wrap pz-odd">
+                                <div class="pz-strip row">
+                                    {% set rParams = app.request.get('_route_params') %}
+                                    {% if rParams['id'] is defined  and rParams is not empty %}
+                                        {%  set artist = get_artist_by_id(app.request.get('_route_params')['id']) %}
+                                        <h4 style="text-align: center;text-transform:uppercase;">{{ artist.name }} {{ 'has_no_published_songs'|trans }}.</h4>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endif %}
+	                    {% set cue      = 0 %}
+	                    {% set oddEven  = ' pz-odd' %}
+	                    {% set allSongs   = songs  %} <!-- | ordered_by_artist_with_max_songs -->
+	                    {% for song in songs %}
+		                    {% if cue % 2 == 0 %}
+			                    {% set oddEven = ' pz-even' %}
+		                    {% else %}
+			                    {% set oddEven = ' pz-odd' %}
+		                    {% endif %}
+                            <div class="col-md-12 no-lr-pad pz-row-wrap {{ oddEven }}">
+                                <div class="pz-strip row">
+                                    <div class="col-md-3">
+                                        <img src="{{ song.coverArt.image }}" class="img-thumbnail pz-cover-art-thumb">
+					                    {{ song.name }}
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a class="" style="display:block;padding-top:17px;" href="{{ path('rte_artist_songs', {'id':song.artist.id}) }}">
+						                    {% if isArtistSongs is defined and isArtistSongs %}
+						                    {% else %}
+                                                <span class="pz-badge-wrap">
+                                                    <span class="badge">{{ song.artist.songs | sequence_length }}</span>
+                                                </span>
+						                    {% endif %}
+						
+						                    {{ song.artist.name}}
+                                        </a>
+                                    </div>
+				                    {% if is_granted("ROLE_ADMIN") == true %}
+                                        <div class="col-md-4 pz-player-pod">
+                                            <audio class="pz-audio-player" src="{{ song.file }}" aria-controls="" controls></audio>
+                                        </div>
+                                        <div class="col-md-2" style="display:block;padding-top:15px;">
+                                            <a href="{{ path('rte_song_edit', {'id':song.id}) }}">
+                                                <span class="badge"><span class="fa fa-pencil"></span></span>
+                                            </a>&nbsp;&nbsp;&nbsp;
+                                            <a href="{{ path('rte_song_delete', {'id':song.id}) }}">
+                                                <span class="badge"><span class="fa fa-trash"></span></span>
+                                            </a>
+                                        </div>
+				                    {% else %}
+                                        <div class="col-md-6 pz-player-pod">
+                                            <audio class="pz-audio-player" src="{{ song.file }}" aria-controls="" controls></audio>
+                                        </div>
+				                    {% endif %}
+                                </div>
+                            </div>
+		                    {% set cue = cue + 1 %}
+	                    {% endfor %}
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+{% endblock %}
+

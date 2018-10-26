@@ -1,0 +1,39 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+
+    encoders:
+        App\Entity\User: bcrypt
+
+    providers:
+        our_users:
+            entity: {class: App\Entity\User, property: email}
+            # entity: {class: App\Entity\User, property: '_username'}
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            pattern: ^/
+            anonymous: true
+
+            guard:
+                # csrf_token_generator: security.csrf.token_manager
+                authenticators:
+                    - app.security.login_form_authenticator
+                entry_point: app.security.login_form_authenticator
+
+            #form_login:
+            #    username_parameter: '_username'
+            #    password_parameter: '_password'
+
+            logout:
+                path: 'security_logout'
+                #target: 'security_login'
+
+    access_control:
+         - { path: ^/.*?/pod, roles: ROLE_USER, allow_if: "has_role('ROLE_USER')" }
+            #allow_if: "'127.0.0.1' == request.getClientIp() or has_role('ROLE_ADMIN')"
+         - { path: ^/.*?/admin, roles: ROLE_ADMIN, allow_if: "has_role('ROLE_ADMIN')"}
+         - { path: ^/.*?/profile, roles: ROLE_USER, allow_if: "has_role('ROLE_USER')" }
+

@@ -1,0 +1,90 @@
+<!Doctype HTML>
+<html >
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="">
+
+    {% block css %}
+        <link href="{{ asset('css/bootstrap.min.css') }}" media="all" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/font-awesome.min.css') }}" media="all" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/supplemental-1.css') }}" media="all" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/supplemental-2.css') }}" media="all" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/poiz.css') }}" media="all" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('images/favicon.svg') }}"  rel="shortcut icon" />
+    {% endblock %}
+
+    {% block top_css_block %}
+    {% endblock %}
+
+
+    <!-- Scripts -->
+
+    <style type="text/css">
+        {% block inline_css %}
+        {% endblock %}
+    </style>
+
+</head>
+
+<body id="pz-body-main" class="pz-body-main">
+<div class="header_padder">&nbsp;</div>
+
+<div id="cs_cart_module_wrapper">
+    <div id="cs_cart_module" class="col-md-12 no_padding cs_cart_module"></div>
+</div>
+
+<div id="static_bar_top" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <div class="pz-header-central col-md-12">
+                <div class="pz-logo-slot col-md-12">
+                    <img style="display:inline-block;width:120px;height:auto;" src="/images/logos/Poiz_insignia.png" alt="Poiz Logo" class="poiz-logo" id="poiz-logo" />
+                    {%  include 'partials/language-switcher-menu.html.twig' %}
+                </div>
+                <div class="pz-icons-slot">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ADMIN BLOCK GOES HERE -->
+<div class="containR">
+    <div class="pre-content">
+        {% block pre_content %}
+        {% endblock %}
+    </div>
+</div>
+
+<div class="container">
+    <div class="col-md-12">
+        {% block top_row %}
+        {% endblock %}
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-9">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class="col-md-3">
+            {% block menu_left %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+<footer>
+    {% block footer %}
+    {% endblock %}
+</footer>
+
+{% block footer_scripts %}
+{% endblock %}
+
+{% block footer_css %}
+{% endblock %}
+</body>
+</html>

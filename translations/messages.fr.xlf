@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="fr"  datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="menu.title.playlist">
+                <source>menu.title.playlist</source>
+                <target>Ma playlist</target>
+            </trans-unit>
+
+            <trans-unit id="menu.title.browse_songs">
+                <source>menu.title.browse_songs</source>
+                <target>Parcourir les chansons</target>
+            </trans-unit>
+
+            <trans-unit id="menu.title.new_song">
+                <source>menu.title.new_song</source>
+                <target>Nouvelle chanson</target>
+            </trans-unit>
+
+            <trans-unit id="menu.title.new_playlist">
+                <source>menu.title.new_playlist</source>
+                <target>Nouvelle playlist</target>
+            </trans-unit>
+
+            <trans-unit id="menu.title.artists">
+                <source>menu.title.artists</source>
+                <target>Les Artistes</target>
+            </trans-unit>
+
+            <trans-unit id="menu.title.new_artist">
+                <source>menu.title.new_artist</source>
+                <target>Nouvelle Artiste</target>
+            </trans-unit>
+
+            <trans-unit id="toggleSelection">
+                <source>toggleSelection</source>
+                <target>Basculer la sélection</target>
+            </trans-unit>
+
+            <trans-unit id="toggle">
+                <source>toggle</source>
+                <target>Basculer</target>
+            </trans-unit>
+
+            <trans-unit id="add2Playlist">
+                <source>add2Playlist</source>
+                <target>Ajouter à la playlist</target>
+            </trans-unit>
+
+            <trans-unit id="add">
+                <source>add</source>
+                <target>Ajouter</target>
+            </trans-unit>
+
+            <trans-unit id="Song">
+                <source>Song</source>
+                <target>Chanson</target>
+            </trans-unit>
+
+            <trans-unit id="Songs">
+                <source>Songs</source>
+                <target>Chansons</target>
+            </trans-unit>
+
+            <trans-unit id="Artist">
+                <source>Artist</source>
+                <target>Artiste</target>
+            </trans-unit>
+
+            <trans-unit id="Audio Player">
+                <source>Audio Player</source>
+                <target>Lecteur audio</target>
+            </trans-unit>
+
+            <trans-unit id="playlist_creation_tips">
+                <source>playlist_creation_tips</source>
+                <target>Pour créer une liste de lecture, utilisez simplement la case à cocher ci-dessous pour enregistrer les chansons sélectionnées dans votre liste de lecture.</target>
+            </trans-unit>
+
+            <trans-unit id="playlist_creation_tips_supplemental_1">
+                <source>playlist_creation_tips_supplemental_1</source>
+                <target>Une fois que vous avez terminé, cliquez sur l'icône </target>
+            </trans-unit>
+
+            <trans-unit id="playlist_creation_tips_supplemental_2">
+                <source>playlist_creation_tips_supplemental_2</source>
+                <target>Créer ma liste de lecture ci-dessous.</target>
+            </trans-unit>
+
+            <trans-unit id="Register">
+                <source>Register</source>
+                <target>Inscription</target>
+            </trans-unit>
+
+            <trans-unit id="Login">
+                <source>Login</source>
+                <target>Connexion</target>
+            </trans-unit>
+
+            <trans-unit id="Username">
+                <source>Username</source>
+                <target>Nom d'utilisateur</target>
+            </trans-unit>
+
+            <trans-unit id="Password">
+                <source>Password</source>
+                <target>Mot de pass</target>
+            </trans-unit>
+
+            <trans-unit id="has_no_published_songs">
+                <source>has_no_published_songs</source>
+                <target>a aucune chanson(s) publié</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

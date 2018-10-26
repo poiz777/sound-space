@@ -1,0 +1,104 @@
+{% extends 'master.html.twig' %}
+{% block title %}Songs Tracker{% endblock %}
+
+{% block top_css_block %}
+{% endblock %}
+
+{% block top_row %}
+    <div class="pz-spacer col-md-12"></div>
+{% endblock %}
+
+{% block menu_left %}
+    {% include 'partials/fe-songs-menu.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <section id="pz-main-wrapper" class="pz-main-wrapper no-lr-pad containR">
+        <span class="scroll-to-top" id="scroll-to-top">
+            <span class="fa fa-chevron-up scroll-to-top-icon" id="scroll-to-top-icon"></span>
+        </span>
+        <section class="pz-wrapper">
+            {% include'partials/flash-message.render.html.twig' %}
+            <section>
+                <div class="pz-time-tracker-wrapper col-md-12 no-lr-pad">
+                    <div class="col-md-12 no-lr-pad pz-form-wrapper" id="pz-form-wrapper">
+                        {% set cue              = 0 %}
+                        {% set oddEven          = ' pz-odd' %}
+                        {% set allArtists       = artists | ordered_by_max_songs %}
+                        {% set showGlobalToggle = true  %}
+
+                        {% for artist in allArtists %}
+                            {% if cue % 2 == 0 %}
+                                {% set oddEven = ' pz-even' %}
+                            {% else %}
+                                {% set oddEven = ' pz-odd' %}
+                            {% endif %}
+
+                            {% if showGlobalToggle == true %}
+                                <div class="col-md-12 no-lr-pad pz-row-wrap pz-odd pz-heading">
+                                    <div class="pz-strip row">
+                                        <div class="col-md-7">
+                                            <h5>{{ 'Artist' | trans }}</h5>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <h5>{{ 'Songs Count' | trans }}</h5>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h5>{{ 'Actions' | trans }}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% set showGlobalToggle   = false  %}
+                            {% endif %}
+
+                            <div class="col-md-12 no-lr-pad pz-row-wrap {{ oddEven }}">
+                                <div class="pz-strip row">
+                                    <div class="col-md-7">
+                                        {% if get_random_artist_pix(artist.id) %}
+                                            {% set artistPixSrc = get_random_artist_pix(artist.id) %}
+                                        {% else %}
+                                            {% set artistPixSrc = asset('images/cover_arts/no-image-icon.png') %}
+                                        {% endif %}
+                                        <img src="{{ artistPixSrc }}" class="img-thumbnail pz-cover-art-thumb">
+                                        <a class="" href="{{ path('rte_artist_songs', {'id':artist.id}) }}">
+                                            {{ artist.name }}
+                                        </a>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <span class="pz-badge-wrap">
+                                            {% set numSongs = artist.songs | sequence_length %}
+                                            {% set songsTxt = 'Song' %}
+                                            {% if numSongs > 1%} {% set songsTxt = 'Songs' %} {% endif %}
+
+
+                                            <span class="badge">{{ numSongs }} {{ songsTxt | trans }}</span>
+                                        </span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a class="pz-link" href="{{ path('rte_artist_songs', {'id':artist.id}) }}">
+                                            <span class="badge"><span class="fa fa-music"></span></span>
+                                        </a>&nbsp;&nbsp;
+                                        {% if is_granted("ROLE_ADMIN") %}
+                                        <a class="pz-link" href="{{ path('rte_artist_edit', {'id':artist.id}) }}">
+                                            <span class="badge"><span class="fa fa-pencil"></span></span>
+                                        </a>&nbsp;&nbsp;&nbsp;
+                                        <a class="pz-link" href="{{ path('rte_artist_delete', {'id':artist.id}) }}">
+                                            <span class="badge"><span class="fa fa-trash"></span></span>
+                                        </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% set cue = cue + 1 %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
+{% endblock %}
+
+{% block footer_scripts %}
+    <script type="text/javascript" src="{{ asset('js/jquery-3.1.0.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+{% endblock %}
