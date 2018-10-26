@@ -63,5 +63,4 @@
 			$entity->setPassword($encoded);
 		}
 		
-		
 	}
